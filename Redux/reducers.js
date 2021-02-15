@@ -1,5 +1,6 @@
 import ActionTypes from './actionTypes';
 import {combineReducers} from 'redux';
+import actionTypes from './actionTypes';
 
 const userState = {};
 let crntPrdtState = {};
@@ -48,6 +49,14 @@ const cartReducer = (st = cart, action) => {
         totalAmount: tot_amount,
       });
       return st;
+
+    case actionTypes.RESET_CART:
+      let resetCart = {
+        items: {},
+        totalItems: 0,
+        totalAmount: 0,
+      };
+      return resetCart;
 
     default:
       break;

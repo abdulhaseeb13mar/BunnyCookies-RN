@@ -53,3 +53,11 @@ export const removeCartAction = (item) => {
     });
   };
 };
+
+export const resetCart = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: ActionTypes.RESET_CART,
+    });
+  };
+};

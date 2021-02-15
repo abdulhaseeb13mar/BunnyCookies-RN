@@ -21,10 +21,8 @@ import {
   addCartAction,
   removeCartAction,
 } from '../Redux/actions';
-import c from '../Assets/frosted27.png';
 import Feather from 'react-native-vector-icons/Feather';
 import UseHeader from '../Helpers/UseHeader';
-import {Badge} from 'react-native-elements';
 
 function SinglePrd(props) {
   useEffect(() => {
@@ -45,7 +43,7 @@ function SinglePrd(props) {
 
   const goBack = () => NavPointer.GoBack();
 
-  const infoScreen = () => NavPointer.Navigate('InfoScreen');
+  const GotoCart = () => NavPointer.NavigateAndReset('Cart');
 
   const addToCart = () => props.addCartAction(pdt);
   const removeFromCart = () => {
@@ -77,6 +75,7 @@ function SinglePrd(props) {
             Title=""
             leftIconName="arrowleft"
             leftIconAction={goBack}
+            rightIconAction={GotoCart}
           />
         </View>
         <View style={{}}>
@@ -92,6 +91,13 @@ function SinglePrd(props) {
             style={{
               marginTop: dim.height * 0.02,
               elevation: 3,
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 1,
+              },
+              shadowOpacity: 0.22,
+              shadowRadius: 2.22,
               borderRadius: 20,
               backgroundColor: 'white',
               alignItems: 'center',
@@ -139,6 +145,9 @@ function SinglePrd(props) {
         </View>
         <View
           style={{
+            ...(props.cart[pdt.id] !== undefined && props.cart[pdt.id] !== 0
+              ? styles.conditionalElevation
+              : {}),
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-around',
@@ -177,6 +186,13 @@ function SinglePrd(props) {
                   padding: 2,
                   borderColor: colors.primary,
                   borderWidth: 0.7,
+                  shadowColor: '#000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 1,
+                  },
+                  shadowOpacity: 0.2,
+                  shadowRadius: 1.41,
                 }}>
                 <Text
                   style={{
@@ -218,12 +234,18 @@ function SinglePrd(props) {
   );
 }
 
-// const styles = StyleSheet.create({
-// });
-// const border = {
-//   borderColor: 'red',
-//   borderWidth: 1,
-// };
+const styles = StyleSheet.create({
+  conditionalElevation: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+  },
+});
+
 const mapStateToProps = (state) => {
   return {
     pdt: state.crntPrdt,

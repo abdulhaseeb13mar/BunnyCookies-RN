@@ -5,7 +5,6 @@ import {View, ScrollView, StyleSheet, Text} from 'react-native';
 import {removeFavAction, setCrntPdt, setFavAction} from '../Redux/actions';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import UseHeader from '../Helpers/UseHeader';
-import colors from '../Helpers/colors';
 import HigherOrderScreen from '../Helpers/HigherOrderScreen';
 import NavPointer from '../Navigation/NavPointer';
 import {CookiesTiles} from './MainScreen';
@@ -27,7 +26,6 @@ export const Favourites = (props) => {
           leftIconName="arrowleft"
           leftIconAction={goBack}
           Title="Favourites"
-          titleStyle={{}}
         />
         <View style={styles.TilesWrapper}>
           {props.favs.length > 0 ? (
@@ -84,6 +82,5 @@ const styles = StyleSheet.create({
     paddingTop: dim.height * 0.025,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
-    // backgroundColor: colors.lightBackground,
   },
 });

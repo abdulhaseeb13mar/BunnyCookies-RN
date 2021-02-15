@@ -1,13 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  ImageBackground,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, View, StyleSheet, TextInput} from 'react-native';
 import {connect} from 'react-redux';
 import HigherOrderScreen from '../Helpers/HigherOrderScreen';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -19,7 +12,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {isFormValid} from '../Helpers/validate';
 import NavPointer from '../Navigation/NavPointer';
-import {UserAction} from '../Redux/actions';
+import {UserAction, resetCart} from '../Redux/actions';
 import Toast from 'react-native-root-toast';
 import UseHeader from '../Helpers/UseHeader';
 
@@ -34,11 +27,10 @@ const ConfirmOrder = (props) => {
   const [phoneErrMsg, setPhoneErrMsg] = useState('');
   const [address, setAddress] = useState('');
   const [addressErrMsg, setAddressErrMsg] = useState('');
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const [loading, setLoading] = useState(false);
-  const pdt = props.pdt;
 
-  const Hire = () => {
+  const Confirm = () => {
     const formValidResponse = isFormValid(
       firstName,
       lastName,
@@ -50,7 +42,7 @@ const ConfirmOrder = (props) => {
       errorMsgHandler(formValidResponse.errCategory, formValidResponse.errMsg);
     } else {
       CallApi();
-      UserAction({
+      props.UserAction({
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -133,6 +125,7 @@ const ConfirmOrder = (props) => {
 
   const closeModal = () => {
     setShowModal(false);
+    props.resetCart();
     NavPointer.Push('MainScreen');
   };
 
@@ -152,35 +145,11 @@ const ConfirmOrder = (props) => {
           leftIconName="arrowleft"
           leftIconAction={goBack}
         />
-        <View style={styles.bookingDetailsCenterOverlay}>
-          <TouchableOpacity
-            onPress={goBack}
-            style={styles.bookingDetailsWrapper}>
-            <ImageBackground
-              source={pdt.images}
-              style={styles.TileImage}
-              imageStyle={{borderRadius: 10}}
-              resizeMode="contain"
-            />
-            <View style={styles.DetailWrapper}>
-              <Text style={styles.ProductName}>{pdt.name}</Text>
-              <View style={styles.detailInner2}>
-                <Text style={styles.detailprice}>${pdt.price}</Text>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.connectorOverlayCenter}>
-          <View style={styles.connecter2}>
-            <View style={styles.connecter3} />
-            <View style={styles.connecter3} />
-          </View>
-        </View>
         <View style={styles.summaryOverlay}>
           <View style={styles.sm1}>
             <View style={styles.sm2}>
               <Text>Total:</Text>
-              <Text style={{fontWeight: 'bold'}}>${pdt.price}</Text>
+              <Text style={{fontWeight: 'bold'}}>${props.total}</Text>
             </View>
             <View style={styles.sm3}>
               <Text style={styles.sm4}>Payment Mode:</Text>
@@ -306,7 +275,7 @@ const ConfirmOrder = (props) => {
             buttonStyle={styles.confirmButton}
             titleStyle={{color: 'white', fontWeight: 'bold'}}
             containerStyle={styles.confirmButtonContainer}
-            onPress={Hire}
+            onPress={Confirm}
             loading={loading}
           />
         </View>
@@ -316,7 +285,7 @@ const ConfirmOrder = (props) => {
           animationType="fade">
           <View style={styles.ModalWrapper}>
             <FontAwesome
-              name="check-circle"
+              name="check-circle-o"
               size={dim.width * 0.25}
               color={colors.primary}
             />
@@ -334,10 +303,13 @@ const ConfirmOrder = (props) => {
 const mapStateToProps = (state) => {
   return {
     pdt: state.crntPrdt,
+    total: state.cartReducer.totalAmount,
   };
 };
 
-export default connect(mapStateToProps, {UserAction})(React.memo(ConfirmOrder));
+export default connect(mapStateToProps, {UserAction, resetCart})(
+  React.memo(ConfirmOrder),
+);
 
 const styles = StyleSheet.create({
   sm4: {fontSize: dim.width * 0.03, fontWeight: 'bold'},
@@ -522,7 +494,6 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   bookingDetailsCenterOverlay: {
-    // marginBottom: dim.height * 0.01,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

@@ -33,17 +33,6 @@ export const Data = {
   ],
   Sheet2: [
     {
-      id: '1',
-      CategoryId: '1',
-      productName: 'Triple Chocolate',
-      images: require('./Assets/chocolate1.png'),
-      description:
-        'A blend of dark chocolate, milk chocolate, and dark Belgian cocoa- a chocolate lover’s dream come true!  These dangerously decadent triple threats will satisfy all of your deepest, darkest chocolate cravings and chocoholic desires.  Enjoyment triples with each bite.  You’ll keep coming back for more and more and more.',
-      price: '5',
-      bgcolor: '#FEFCFC',
-      added: 0,
-    },
-    {
       id: '2',
       CategoryId: '1',
       productName: 'Peanut Butter Chocolate Chunk',
@@ -65,17 +54,7 @@ export const Data = {
       bgcolor: '#FEFCFC',
       added: 0,
     },
-    {
-      id: '4',
-      CategoryId: '1',
-      productName: 'Chocolate Dipped Chocolate Chip Cookies',
-      images: require('./Assets/chocolate4.png'),
-      description:
-        "Taking our most popular cookie to the next level by dunking it half-way in melted chocolate.  This is our premium cookies and we promise you'll love it! ",
-      price: '6',
-      bgcolor: '#FEFCFC',
-      added: 0,
-    },
+
     {
       id: '5',
       CategoryId: '1',
@@ -98,6 +77,7 @@ export const Data = {
       bgcolor: '#FEFCFC',
       added: 0,
     },
+
     {
       id: '7',
       CategoryId: '1',
@@ -138,6 +118,28 @@ export const Data = {
       images: require('./Assets/chocolate10.png'),
       description:
         'They’re fat, they’re gooey, they’re fudgy, they’re thick chocolatey cookies with Belgian milk chocolate and candy cane sand!',
+      price: '6',
+      bgcolor: '#FEFCFC',
+      added: 0,
+    },
+    {
+      id: '1',
+      CategoryId: '1',
+      productName: 'Triple Chocolate',
+      images: require('./Assets/chocolate1.png'),
+      description:
+        'A blend of dark chocolate, milk chocolate, and dark Belgian cocoa- a chocolate lover’s dream come true!  These dangerously decadent triple threats will satisfy all of your deepest, darkest chocolate cravings and chocoholic desires.  Enjoyment triples with each bite.  You’ll keep coming back for more and more and more.',
+      price: '5',
+      bgcolor: '#FEFCFC',
+      added: 0,
+    },
+    {
+      id: '4',
+      CategoryId: '1',
+      productName: 'Chocolate Dipped Chocolate Chip Cookies',
+      images: require('./Assets/chocolate4.png'),
+      description:
+        "Taking our most popular cookie to the next level by dunking it half-way in melted chocolate.  This is our premium cookies and we promise you'll love it! ",
       price: '6',
       bgcolor: '#FEFCFC',
       added: 0,

@@ -43,9 +43,8 @@ function MainScreen(props) {
 
   const addToCart = (i) => props.addCartAction(i);
 
-  const removeFromCart = (i) => {
+  const removeFromCart = (i) =>
     props.cart[i.id].added !== 0 && props.removeCartAction(i);
-  };
 
   const goToSP = (item) => {
     props.setCrntPdt(item);
@@ -53,6 +52,7 @@ function MainScreen(props) {
   };
 
   const GotoFavs = () => NavPointer.NavigateAndReset('Favourites');
+  const GotoCart = () => NavPointer.NavigateAndReset('Cart');
 
   return (
     <HigherOrderScreen style={{backgroundColor: 'white'}}>
@@ -61,6 +61,7 @@ function MainScreen(props) {
           leftIcon={AntDesign}
           leftIconName="hearto"
           leftIconAction={GotoFavs}
+          rightIconAction={GotoCart}
           rightIcon={Feather}
           rightIconName="shopping-bag"
           Title="Bunny Cookies"
@@ -89,7 +90,7 @@ function MainScreen(props) {
                   cc={cc}
                   goToSP={goToSP}
                   favs={props.favs}
-                  removeFavAct={(id) => props.removeFavAction(id)}
+                  removeFavAct={(i) => props.removeFavAction(i)}
                   setFavAct={(i) => props.setFavAction(i)}
                   addToCart={addToCart}
                   itemInCard={props.cart[item.id]}
@@ -146,6 +147,13 @@ export const CookiesTiles = ({
         borderRadius: 15,
         marginVertical: dim.height * 0.015,
         elevation: 2,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
       }}>
       <View
         style={{
@@ -277,10 +285,6 @@ const Tabs = ({item, cc, ct}) => {
   );
 };
 
-const border = {
-  borderColor: 'red',
-  borderWidth: 1,
-};
 const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer.items,
@@ -330,28 +334,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderRadius: 15,
     elevation: 3,
-  },
-  contain: {
-    paddingHorizontal: dim.width * 0.05,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingBottom: dim.height * 0.025,
-    paddingTop: dim.height * 0.035,
-  },
-  sb1: {
-    zIndex: 5,
-    position: 'absolute',
-    height: '50%',
-    width: '100%',
-    backgroundColor: colors.primary,
-    borderBottomRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    elevation: 3,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
-    paddingBottom: dim.height * 0.015,
-    paddingLeft: dim.width * 0.02,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -360,18 +342,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
   },
-  searchbtnOuterwrap: {
-    width: dim.width * 0.13,
-    height: (dim.height * 0.125) / 2,
-    overflow: 'hidden',
-  },
-  searchBtnWrap: {
-    width: '100%',
-    height: dim.height * 0.125,
-    borderTopRightRadius: 50,
-    borderTopLeftRadius: 6,
-    borderBottomRightRadius: 50,
-    position: 'absolute',
-    overflow: 'hidden',
+  contain: {
+    paddingHorizontal: dim.width * 0.05,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: dim.height * 0.025,
+    paddingTop: dim.height * 0.035,
   },
 });

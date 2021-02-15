@@ -3,20 +3,7 @@ import {combineReducers} from 'redux';
 
 const userState = {};
 let crntPrdtState = {};
-let FavItems = [
-  {
-    id: '1',
-    caregoryid: '1',
-    name: 'Chocolate Frosted',
-    subText: 'with sugar glaze',
-    price: '3',
-    kkal: '158',
-    weight: '50g',
-    images: require('../Assets/a1.png'),
-    about:
-      'Chocolate Frosted Donut based on the calories, fat, protein, carbs and other nutrition information submitted for Chocolate Frosted Donut.',
-  },
-];
+let FavItems = [];
 
 const userReducer = (st = userState, action) => {
   switch (action.type) {

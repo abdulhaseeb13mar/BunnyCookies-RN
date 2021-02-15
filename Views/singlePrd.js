@@ -11,11 +11,15 @@ import HigherOrderScreen from '../Helpers/HigherOrderScreen';
 import colors from '../Helpers/colors';
 import {Button} from 'react-native-elements';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import dim from '../Helpers/heightWidth';
 import {connect} from 'react-redux';
-import FancyBtn from '../Helpers/FancyBtn';
 import NavPointer from '../Navigation/NavPointer';
 import {setFavAction, removeFavAction} from '../Redux/actions';
+import c from '../Assets/frosted27.png';
+import Feather from 'react-native-vector-icons/Feather';
+import UseHeader from '../Helpers/UseHeader';
+import {Badge} from 'react-native-elements';
 
 function SinglePrd(props) {
   useEffect(() => {
@@ -51,130 +55,135 @@ function SinglePrd(props) {
         style={{
           flex: 1,
           paddingHorizontal: dim.width * 0.05,
+          paddingVertical: dim.height * 0.01,
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
         }}>
-        <View
-          style={{
-            flex: 1,
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '100%',
-              height: '10%',
-            }}>
-            <TouchableOpacity style={styles.crossWrapper} onPress={goBack}>
-              <AntDesign
-                name="arrowleft"
-                color="black"
-                size={dim.width * 0.07}
-              />
-            </TouchableOpacity>
-            <FancyBtn
-              IconLibrary={AntDesign}
-              icon={fav ? 'heart' : 'hearto'}
-              iconSize={dim.width * 0.055}
-              iconStyle={{
-                paddingBottom: dim.height * 0.01,
-                paddingLeft: dim.width * 0.02,
-              }}
-              btnWidth={dim.width * 0.11}
-              btnHeight={dim.height * 0.11}
-              onPress={toggleFav}
-            />
-          </View>
-          <ImageBackground
-            source={pdt.images}
-            style={styles.singlepdImg}
-            imageStyle={{
-              width: '100%',
-              height: '100%',
-            }}
-            resizeMode="contain"
+        <View style={{}}>
+          <UseHeader
+            leftIcon={AntDesign}
+            rightIcon={Feather}
+            rightIconName="shopping-bag"
+            Title=""
+            leftIconName="arrowleft"
+            leftIconAction={goBack}
           />
         </View>
-        <View
-          style={{
-            alignContent: 'flex-end',
-            marginVertical: dim.height * 0.015,
-            width: '100%',
-          }}>
+        <View style={{}}>
           <Text
             style={{
+              fontSize: dim.width * 0.075,
               color: colors.primary,
-              fontSize: dim.width * 0.07,
               fontWeight: 'bold',
             }}>
-            {pdt.name}
-          </Text>
-          <Text
-            style={{
-              fontSize: dim.width * 0.06,
-            }}>
-            {pdt.subText}
-          </Text>
-          <Text
-            style={{
-              width: '90%',
-              fontSize: dim.width * 0.041,
-              color: colors.darkGray,
-              lineHeight: dim.height * 0.03,
-              marginVertical: dim.height * 0.013,
-              fontWeight: 'bold',
-            }}>
-            {pdt.about}
+            {pdt.categoryName}
           </Text>
           <View
             style={{
-              flexDirection: 'row',
+              marginTop: dim.height * 0.02,
+              elevation: 3,
+              borderRadius: 20,
+              backgroundColor: 'white',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
+              paddingVertical: dim.height * 0.018,
+              paddingHorizontal: dim.width * 0.03,
             }}>
-            <Text style={{fontSize: dim.width * 0.045}}>
-              Kkal: <Text style={{fontWeight: 'bold'}}>{pdt.kkal}</Text>
-            </Text>
-            <Text style={{fontSize: dim.width * 0.045}}>
-              Weigh: <Text style={{fontWeight: 'bold'}}>{pdt.weight}</Text>
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            width: '100%',
-            paddingVertical: dim.height * 0.02,
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-          }}>
-          <View>
-            <Text style={{color: colors.darkGray, fontSize: dim.width * 0.04}}>
-              Total Price
-            </Text>
+            <ImageBackground
+              source={pdt.images}
+              style={{
+                width: '90%',
+                height: dim.height * 0.25,
+              }}
+              resizeMode="center"
+            />
             <Text
               style={{
+                fontWeight: 'bold',
                 color: colors.primary,
                 fontSize: dim.width * 0.06,
-                fontWeight: 'bold',
+                marginTop: dim.height * 0.008,
               }}>
               ${pdt.price}
             </Text>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                color: 'black',
+                fontSize: dim.width * 0.058,
+                marginTop: dim.height * 0.008,
+              }}>
+              {pdt.productName}
+            </Text>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                color: colors.lightGrey3,
+                fontSize: dim.width * 0.038,
+                marginTop: dim.height * 0.008,
+                textAlign: 'center',
+              }}>
+              {pdt.description}
+            </Text>
           </View>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            width: '100%',
+            marginBottom: dim.height * 0.02,
+            paddingVertical: dim.height * 0.015,
+            // backgroundColor: 'white',
+            borderRadius: 50,
+            // elevation: 3,
+          }}>
+          {/* <FontAwesome
+            name="minus-circle"
+            color={colors.primary}
+            size={dim.width * 0.12}
+          />
+          <View
+            style={{
+              backgroundColor: 'white',
+              width: dim.width * 0.1,
+              height: dim.width * 0.1,
+              transform: [{scale: 1.53}],
+              borderRadius: 50,
+              alignItems: 'center',
+              justifyContent: 'center',
+              elevation: 2,
+              padding: 2,
+              borderColor: colors.primary,
+              borderWidth: 0.7,
+            }}>
+            <Text
+              style={{
+                color: colors.primary,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                fontSize: dim.width * 0.05,
+              }}>
+              1
+            </Text>
+          </View>
+          <FontAwesome
+            name="plus-circle"
+            color={colors.primary}
+            size={dim.width * 0.12}
+          /> */}
           <Button
-            onPress={infoScreen}
-            title="buy now"
+            raised
+            title="Add to cart"
+            titleStyle={{fontSize: dim.width * 0.05}}
             buttonStyle={{
-              borderTopRightRadius: 50,
-              borderBottomRightRadius: 50,
-              borderBottomLeftRadius: 50,
-              paddingHorizontal: dim.width * 0.07,
-              backgroundColor: colors.primary,
               paddingVertical: dim.height * 0.015,
+              backgroundColor: colors.primary,
+            }}
+            containerStyle={{
+              width: '100%',
+              borderRadius: 50,
             }}
           />
         </View>
@@ -189,7 +198,10 @@ const styles = StyleSheet.create({
     height: '85%',
   },
 });
-
+const border = {
+  borderColor: 'red',
+  borderWidth: 1,
+};
 const mapStateToProps = (state) => {
   return {
     pdt: state.crntPrdt,

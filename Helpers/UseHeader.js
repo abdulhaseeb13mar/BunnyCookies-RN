@@ -3,6 +3,17 @@ import React from 'react';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../Helpers/colors';
 import dim from '../Helpers/heightWidth';
+import {Badge} from 'react-native-elements';
+
+//======PROPS========
+// leftIcon
+// rightIcon
+// leftIconAction
+// leftIconName
+// Title
+// rightIconAction
+// rightIconName
+// titleStyle
 
 function MyHeader(props) {
   const LeftIconLibrary = props.leftIcon;
@@ -29,15 +40,22 @@ function MyHeader(props) {
             }}
           />
         )}
-        <Text style={styles.HeaderText}>{props.Title}</Text>
+        <Text style={{...styles.HeaderText, ...props.titleStyle}}>
+          {props.Title}
+        </Text>
         {RightIconLibrary ? (
           <TouchableOpacity
             onPress={props.rightIconAction}
             style={styles.IconWrap}>
             <RightIconLibrary
               name={props.rightIconName}
-              size={dim.width * 0.065}
+              size={dim.width * 0.075}
               color={colors.primary}
+            />
+            <Badge
+              value={1}
+              containerStyle={styles.badgeContainer}
+              badgeStyle={{backgroundColor: colors.primary}}
             />
           </TouchableOpacity>
         ) : (
@@ -54,6 +72,11 @@ function MyHeader(props) {
   );
 }
 const styles = StyleSheet.create({
+  badgeContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+  },
   IconWrap: {
     display: 'flex',
     alignItems: 'center',

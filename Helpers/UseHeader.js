@@ -4,6 +4,7 @@ import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '../Helpers/colors';
 import dim from '../Helpers/heightWidth';
 import {Badge} from 'react-native-elements';
+import {connect} from 'react-redux';
 
 //======PROPS========
 // leftIcon
@@ -52,11 +53,13 @@ function MyHeader(props) {
               size={dim.width * 0.075}
               color={colors.primary}
             />
-            <Badge
-              value={1}
-              containerStyle={styles.badgeContainer}
-              badgeStyle={{backgroundColor: colors.primary}}
-            />
+            {props.totalItems > 0 && (
+              <Badge
+                value={props.totalItems}
+                containerStyle={styles.badgeContainer}
+                badgeStyle={{backgroundColor: colors.primary}}
+              />
+            )}
           </TouchableOpacity>
         ) : (
           <View
@@ -114,4 +117,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyHeader;
+const mapStateToProps = (state) => ({
+  totalItems: state.cartReducer.totalItems,
+});
+
+export default connect(mapStateToProps, {})(MyHeader);

@@ -15,7 +15,12 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import dim from '../Helpers/heightWidth';
 import {connect} from 'react-redux';
 import NavPointer from '../Navigation/NavPointer';
-import {setFavAction, removeFavAction} from '../Redux/actions';
+import {
+  setFavAction,
+  removeFavAction,
+  addCartAction,
+  removeCartAction,
+} from '../Redux/actions';
 import c from '../Assets/frosted27.png';
 import Feather from 'react-native-vector-icons/Feather';
 import UseHeader from '../Helpers/UseHeader';
@@ -41,6 +46,11 @@ function SinglePrd(props) {
   const goBack = () => NavPointer.GoBack();
 
   const infoScreen = () => NavPointer.Navigate('InfoScreen');
+
+  const addToCart = () => props.addCartAction(pdt);
+  const removeFromCart = () => {
+    props.cart[pdt.id].added !== 0 && props.removeCartAction(pdt);
+  };
 
   const toggleFav = () => {
     fav ? props.removeFavAction(pdt.id) : props.setFavAction(pdt);
@@ -135,79 +145,95 @@ function SinglePrd(props) {
             width: '100%',
             marginBottom: dim.height * 0.02,
             paddingVertical: dim.height * 0.015,
-            // backgroundColor: 'white',
+            backgroundColor:
+              props.cart[pdt.id] !== undefined && props.cart[pdt.id] !== 0
+                ? 'white'
+                : colors.lightBackground,
             borderRadius: 50,
-            // elevation: 3,
+            elevation:
+              props.cart[pdt.id] !== undefined && props.cart[pdt.id] !== 0
+                ? 3
+                : 0,
           }}>
-          {/* <FontAwesome
-            name="minus-circle"
-            color={colors.primary}
-            size={dim.width * 0.12}
-          />
-          <View
-            style={{
-              backgroundColor: 'white',
-              width: dim.width * 0.1,
-              height: dim.width * 0.1,
-              transform: [{scale: 1.53}],
-              borderRadius: 50,
-              alignItems: 'center',
-              justifyContent: 'center',
-              elevation: 2,
-              padding: 2,
-              borderColor: colors.primary,
-              borderWidth: 0.7,
-            }}>
-            <Text
-              style={{
-                color: colors.primary,
-                fontWeight: 'bold',
-                textAlign: 'center',
-                fontSize: dim.width * 0.05,
-              }}>
-              1
-            </Text>
-          </View>
-          <FontAwesome
-            name="plus-circle"
-            color={colors.primary}
-            size={dim.width * 0.12}
-          /> */}
-          <Button
-            raised
-            title="Add to cart"
-            titleStyle={{fontSize: dim.width * 0.05}}
-            buttonStyle={{
-              paddingVertical: dim.height * 0.015,
-              backgroundColor: colors.primary,
-            }}
-            containerStyle={{
-              width: '100%',
-              borderRadius: 50,
-            }}
-          />
+          {props.cart[pdt.id] !== undefined && props.cart[pdt.id] !== 0 ? (
+            <>
+              <TouchableOpacity onPress={removeFromCart}>
+                <FontAwesome
+                  name="minus-circle"
+                  color={colors.primary}
+                  size={dim.width * 0.12}
+                />
+              </TouchableOpacity>
+              <View
+                style={{
+                  backgroundColor: 'white',
+                  width: dim.width * 0.1,
+                  height: dim.width * 0.1,
+                  transform: [{scale: 1.53}],
+                  borderRadius: 50,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  elevation: 2,
+                  padding: 2,
+                  borderColor: colors.primary,
+                  borderWidth: 0.7,
+                }}>
+                <Text
+                  style={{
+                    color: colors.primary,
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    fontSize: dim.width * 0.05,
+                  }}>
+                  {props.cart[pdt.id].added}
+                </Text>
+              </View>
+              <TouchableOpacity onPress={addToCart}>
+                <FontAwesome
+                  name="plus-circle"
+                  color={colors.primary}
+                  size={dim.width * 0.12}
+                />
+              </TouchableOpacity>
+            </>
+          ) : (
+            <Button
+              raised
+              onPress={() => props.addCartAction(pdt)}
+              title="Add to cart"
+              titleStyle={{fontSize: dim.width * 0.05}}
+              buttonStyle={{
+                paddingVertical: dim.height * 0.015,
+                backgroundColor: colors.primary,
+              }}
+              containerStyle={{
+                width: '100%',
+                borderRadius: 50,
+              }}
+            />
+          )}
         </View>
       </View>
     </HigherOrderScreen>
   );
 }
 
-const styles = StyleSheet.create({
-  singlepdImg: {
-    width: '100%',
-    height: '85%',
-  },
-});
-const border = {
-  borderColor: 'red',
-  borderWidth: 1,
-};
+// const styles = StyleSheet.create({
+// });
+// const border = {
+//   borderColor: 'red',
+//   borderWidth: 1,
+// };
 const mapStateToProps = (state) => {
   return {
     pdt: state.crntPrdt,
     favs: state.toggleFav,
+    cart: state.cartReducer.items,
   };
 };
-export default connect(mapStateToProps, {setFavAction, removeFavAction})(
-  SinglePrd,
-);
+export default connect(mapStateToProps, {
+  setFavAction,
+  removeFavAction,
+  removeCartAction,
+  addCartAction,
+})(SinglePrd);

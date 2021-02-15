@@ -15,7 +15,13 @@ import Image from 'react-native-fast-image';
 import Listers from '../Helpers/listers';
 import {Data} from '../SampleData';
 import {connect} from 'react-redux';
-import {setCrntPdt, setFavAction, removeFavAction} from '../Redux/actions';
+import {
+  setCrntPdt,
+  setFavAction,
+  removeFavAction,
+  removeCartAction,
+  addCartAction,
+} from '../Redux/actions';
 import NavPointer from '../Navigation/NavPointer';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -35,11 +41,18 @@ function MainScreen(props) {
     setTabProducts(fPrd);
   };
 
+  const addToCart = (i) => props.addCartAction(i);
+
+  const removeFromCart = (i) => {
+    props.cart[i.id].added !== 0 && props.removeCartAction(i);
+  };
+
   const goToSP = (item) => {
     props.setCrntPdt(item);
     NavPointer.Navigate('SinglePrd');
   };
-  const GotoFavs = () => NavPointer.Navigate('Favourites');
+
+  const GotoFavs = () => NavPointer.NavigateAndReset('Favourites');
 
   return (
     <HigherOrderScreen style={{backgroundColor: 'white'}}>
@@ -78,6 +91,9 @@ function MainScreen(props) {
                   favs={props.favs}
                   removeFavAct={(id) => props.removeFavAction(id)}
                   setFavAct={(i) => props.setFavAction(i)}
+                  addToCart={addToCart}
+                  itemInCard={props.cart[item.id]}
+                  removeFromCart={removeFromCart}
                 />
               );
             })}
@@ -94,6 +110,9 @@ export const CookiesTiles = ({
   favs,
   removeFavAct,
   setFavAct,
+  addToCart,
+  itemInCard,
+  removeFromCart,
 }) => {
   useEffect(() => {
     checkIfFav();
@@ -179,48 +198,58 @@ export const CookiesTiles = ({
           borderTopWidth: 1,
           borderColor: colors.lightGrey1,
         }}>
-        {/* <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginVertical: dim.height * 0.013,
-            width: '75%',
-          }}>
-          <Feather
-            name="minus-circle"
-            size={dim.width * 0.05}
-            color={colors.primary}
-          />
-          <Text style={{fontWeight: 'bold', color: colors.primary}}>3</Text>
-          <Feather
-            name="plus-circle"
-            size={dim.width * 0.05}
-            color={colors.primary}
-          />
-        </View> */}
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginVertical: dim.height * 0.013,
-          }}>
-          <Feather
-            name="shopping-bag"
-            color={colors.primary}
-            size={dim.width * 0.05}
-          />
-          <Text
+        {itemInCard !== undefined && itemInCard !== 0 ? (
+          <View
             style={{
-              color: colors.primary,
-              fontWeight: 'bold',
-              fontSize: dim.width * 0.035,
-              marginLeft: dim.width * 0.02,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginVertical: dim.height * 0.013,
+              width: '75%',
             }}>
-            Add to cart
-          </Text>
-        </View>
+            <TouchableOpacity onPress={() => removeFromCart(item)}>
+              <Feather
+                name="minus-circle"
+                size={dim.width * 0.05}
+                color={colors.primary}
+              />
+            </TouchableOpacity>
+            <Text style={{fontWeight: 'bold', color: colors.primary}}>
+              {itemInCard.added}
+            </Text>
+            <TouchableOpacity onPress={() => addToCart(item)}>
+              <Feather
+                name="plus-circle"
+                size={dim.width * 0.05}
+                color={colors.primary}
+              />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            onPress={() => addToCart(item)}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginVertical: dim.height * 0.013,
+            }}>
+            <Feather
+              name="shopping-bag"
+              color={colors.primary}
+              size={dim.width * 0.05}
+            />
+            <Text
+              style={{
+                color: colors.primary,
+                fontWeight: 'bold',
+                fontSize: dim.width * 0.035,
+                marginLeft: dim.width * 0.02,
+              }}>
+              Add to cart
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -254,6 +283,7 @@ const border = {
 };
 const mapStateToProps = (state) => {
   return {
+    cart: state.cartReducer.items,
     favs: state.toggleFav,
   };
 };
@@ -262,6 +292,8 @@ export default connect(mapStateToProps, {
   setCrntPdt,
   setFavAction,
   removeFavAction,
+  removeCartAction,
+  addCartAction,
 })(MainScreen);
 
 const styles = StyleSheet.create({

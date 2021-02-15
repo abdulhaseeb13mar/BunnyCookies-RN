@@ -17,7 +17,7 @@ export const Favourites = (props) => {
     NavPointer.Navigate('SinglePrd');
   };
 
-  const goBack = () => NavPointer.GoBack();
+  const goBack = () => NavPointer.Navigate('MainScreen');
 
   return (
     <HigherOrderScreen style={{backgroundColor: 'white'}}>

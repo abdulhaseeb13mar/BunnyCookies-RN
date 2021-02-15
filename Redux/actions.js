@@ -35,3 +35,21 @@ export const removeFavAction = (itemId) => {
     });
   };
 };
+
+export const addCartAction = (item) => {
+  return async (dispatch) => {
+    dispatch({
+      type: ActionTypes.ADD_ITEM_CART,
+      payload: item,
+    });
+  };
+};
+
+export const removeCartAction = (item) => {
+  return async (dispatch) => {
+    dispatch({
+      type: ActionTypes.REMOVE_ITEM_CART,
+      payload: item,
+    });
+  };
+};

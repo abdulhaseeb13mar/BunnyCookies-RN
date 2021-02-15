@@ -41,6 +41,7 @@ export const Data = {
         'A blend of dark chocolate, milk chocolate, and dark Belgian cocoa- a chocolate lover’s dream come true!  These dangerously decadent triple threats will satisfy all of your deepest, darkest chocolate cravings and chocoholic desires.  Enjoyment triples with each bite.  You’ll keep coming back for more and more and more.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '2',
@@ -51,6 +52,7 @@ export const Data = {
         'Organic peanut butter weds chocolate in its ultimate union.  A salty and sweet interplay of flavors arouse your taste buds with creamy, smooth peanut butter with the perfect blend of milk and dark chocolate.  And they live happily ever after.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '3',
@@ -61,6 +63,7 @@ export const Data = {
         'The irresistible duo of buttery, crunchy, dry-roasted Hawaiian macadamia nuts and silky white chocolate make these rich decadent obsessions crave-worthy.  Once you get your hands on these, you will never want to let them go.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '4',
@@ -71,6 +74,7 @@ export const Data = {
         "Taking our most popular cookie to the next level by dunking it half-way in melted chocolate.  This is our premium cookies and we promise you'll love it! ",
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '5',
@@ -81,6 +85,7 @@ export const Data = {
         "Big, thick, chunky cookies infused with hazelnut nuttiness. Get slapped in the face with an organic hazelnut spread filling in the middle that'll get your mouth nice and wet.",
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '6',
@@ -91,6 +96,7 @@ export const Data = {
         'This cookies come individually wrapped and boxed with care. Perfect for gifts, parties or to snack.Enjoy the chocolate chips along with pink, white and red M&Ms.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '7',
@@ -101,6 +107,7 @@ export const Data = {
         'The cookie that started it all for us! 3 kinds of Chocolate and pure butter in a vanilla batter. A Classic Choc Chunk Cookie.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '8',
@@ -111,6 +118,7 @@ export const Data = {
         'Using premium rolled oats and dark Belgian chocolate this one is a must for all you oatmeal fans!',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '9',
@@ -121,6 +129,7 @@ export const Data = {
         "What do you get when you combine crumbled fudge cookies, premium Belgian dark chocolate and a sinful injection of fudge frosting? A cookie like you've never had before, that's what.",
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '10',
@@ -131,6 +140,7 @@ export const Data = {
         'They’re fat, they’re gooey, they’re fudgy, they’re thick chocolatey cookies with Belgian milk chocolate and candy cane sand!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '11',
@@ -141,6 +151,7 @@ export const Data = {
         'Flavors of premium vanilla and chocolate blend together to make a wonderful combination in these favorite chocolate chip cookies.',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '12',
@@ -151,6 +162,7 @@ export const Data = {
         'These sof and Chewy peanut butter cookies are dressed up by using White Chocolate Peanut Butter, white chocolate chips extra vanilla and even a vanilla bean.  ',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '13',
@@ -161,6 +173,7 @@ export const Data = {
         'Soft vanilla cookies are topped with a rich fudge-like frosting that will take your breath away.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '14',
@@ -171,6 +184,7 @@ export const Data = {
         'Soft and chewy, these Vanilla Bean Snickerdoodles are a family favorite. Cookies packed with flavor!',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '15',
@@ -181,6 +195,7 @@ export const Data = {
         'Plenty of vanilla, white chocolate, and a pinch of salt may just make these Salted Vanilla Chip Oatmeal Cookies your new favorite!',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '16',
@@ -191,6 +206,7 @@ export const Data = {
         'Cherry Vanilla Cookies are moist, chewy, and full of creamy vanilla and tart cherry flavor. A delicious twist on the classic chocolate chip cookie!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '17',
@@ -201,6 +217,7 @@ export const Data = {
         'Vanilla Sandwich Cookies are crunchy on the outside, chewy on the inside, and bursting with tons of real vanilla flavor.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '18',
@@ -211,6 +228,7 @@ export const Data = {
         'Warm vanilla honey cookies stuffed with sugar and spice and everything nice.vanilla and honey play nice alongside a series of spices in these crisp and chewy cookies',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '19',
@@ -221,6 +239,7 @@ export const Data = {
         "It's cookie time! Lemon Honey Oatmeal Cookies. So delicious - I think they are perfect for Easter and well anytime! ",
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '20',
@@ -231,6 +250,7 @@ export const Data = {
         'These vanilla bean sugar cookies are rolled in sugar for a sparkling appearance and a soft, light and chewy texture that will make these your new favorite!',
       price: '5',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '21',
@@ -241,6 +261,7 @@ export const Data = {
         'Perfectly Soft Lofthouse Style Frosted Sugar Cookies made from scratch with an easy frosting and full of pretty sprinkles!  Best of all, they make a delicious treat to serve with a tall glass of milk.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '22',
@@ -251,6 +272,7 @@ export const Data = {
         'Soft Peppermint Cookies with Easy Cookie Frosting... A brilliant sugar cookie variation for the holidays',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '23',
@@ -261,6 +283,7 @@ export const Data = {
         'These frosted sugar cookie bars are soft, chewy, and topped with creamy vanilla buttercream. And sprinkles… of course!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '24',
@@ -271,6 +294,7 @@ export const Data = {
         'Our Springtime Frosted Chocolate Cookies are sweet, chocolatey and covered with our deliciously creamy Best Buttercream Frosting in colorful Spring colors. ',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '25',
@@ -281,6 +305,7 @@ export const Data = {
         'These delicious cookies have chocolate covered toffee in the cookie dough and sprinkled on top.Frosted Toffee cookies are a great combination of a delicious cookie bottom topped with frosting and chocolate toffee bits.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '26',
@@ -291,6 +316,7 @@ export const Data = {
         'If you love Lofthouse cookies – then you definitely need to try these Red Velvet Cookies with Cream Cheese Frosting. They’re pillowy soft with a delicate crumb, delicious red velvet flavor, and cream cheese frosting.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '27',
@@ -301,6 +327,7 @@ export const Data = {
         'Need a new holiday cookie? Whip up this tasty sugar cookie with loads of almond flavoring.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '28',
@@ -311,6 +338,7 @@ export const Data = {
         'Love deep, dark fudgy chocolate? Whip up a batch of cookies in no time.best for chocolate lovers.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '29',
@@ -321,6 +349,7 @@ export const Data = {
         'These Banana Nut Frosted Cookies are so soft and chewy, are frosted with banana cream cheese frosting and topped with chopped walnuts. ',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '30',
@@ -331,6 +360,7 @@ export const Data = {
         ' These Carrot Cake Cookies are perfectly portable, perfectly tender, and perfectly melt-in-your-mouth addicting. They encapsulate everything you love about Carrot Cake with its aromatic fragrant spices, carrots and pecans rolled into easy-to-make chewy cookie form. ',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '31',
@@ -341,6 +371,7 @@ export const Data = {
         'A mini version of the classic fruit pizza everyone loves! Soft sugar cookies with cream cheese frosting and colorful fruit toppings.',
       price: '7',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '32',
@@ -351,6 +382,7 @@ export const Data = {
         'Breakfast cookies packed with fruits, nuts, oats, and everything else healthy. A delicious breakfast on-the-go!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '33',
@@ -361,6 +393,7 @@ export const Data = {
         'Fruit bars that are a perfect vehicle for market-fresh blueberries, cherries, and peaches in season, or your favorite jam during those times in between.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '34',
@@ -371,6 +404,7 @@ export const Data = {
         'Chocolate covered strawberries....meet your match. Cookie covered strawberry jam. For those that love chocolate and strawberries this would be a match made in heaven',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '35',
@@ -381,6 +415,7 @@ export const Data = {
         'Thick and chewy Almond Amaretto Chocolate Chunk Cookies! These are so flavorful and one of the BEST cookie. If you love almonds and chocolate, you have to try them!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '36',
@@ -391,6 +426,7 @@ export const Data = {
         'Chunky, soft center, crispy edge cashew cookies chock full of cashews and dark chocolate chips.These cookies are chunky, chock full of cashews and dark chocolate chips and very gooey. They taste just like cashews.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '37',
@@ -401,6 +437,7 @@ export const Data = {
         'Strawberry shortcake cookies are a sweet way to use fresh strawberries when they are in season. The cookies are similar to scones and have a light and fluffy texture.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '38',
@@ -411,6 +448,7 @@ export const Data = {
         'These Cranberry Orange Cookies are the perfect Christmas cookie! Chewy cookies chock full of fresh cranberries and zesty orange, topped with a brightly flavored,orange glaze.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '39',
@@ -421,6 +459,7 @@ export const Data = {
         'The softest & chewiest oatmeal cookies you’ll ever eat, studded with fresh raspberries. Nobody will ever believe they’re healthy & less than 100 calories!',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '40',
@@ -431,6 +470,7 @@ export const Data = {
         'These reduced sugar soft oat cookies are sweetened with Truvia and blueberries and make the ideal accompaniment to your cup of tea and coffee at elvenses.',
       price: '6',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '41',
@@ -441,6 +481,7 @@ export const Data = {
         'These vegan ice cream sandwiches are the perfect indulgent dessert that are also healthy and packed with superfoods. Raw and gluten free too.',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '42',
@@ -451,6 +492,7 @@ export const Data = {
         'These Vegan Chocolate Black Bean Cookie Ice Cream Sandwiches taste super decadent but are surprisingly healthy!',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '43',
@@ -461,6 +503,7 @@ export const Data = {
         'These have a big ol’ hunk of cool, creamy, refreshing ice cream sandwiched between two sink-your-teeth-into chocolate cookies',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '44',
@@ -471,6 +514,7 @@ export const Data = {
         'Calling all peanut butter lovers! These easy peanut butter cookie ice cream sandwiches are made with flourless peanut butter cookies and peanut butter swirl ice cream. This is the ultimate summer dessert!',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '45',
@@ -481,6 +525,7 @@ export const Data = {
         'Creamy vanilla ice cream sandwiched between crisp and buttery sugar cookies. These sugar cookie ice cream sandwiches are the perfect summer dessert!',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '46',
@@ -491,6 +536,7 @@ export const Data = {
         'With tender chocolate chip cookies and a fluffy no-churn ice cream, these frozen treats taste just like your favorite chocolate chip cookie ice cream sandwich, only better.',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '47',
@@ -501,6 +547,7 @@ export const Data = {
         'What happens when you marry the best chocolate chip cookie ever with the best chocolate brownie ever. Magical Crowniewich babies. (Cookies + Brownies + Sandwich = Crowniewich or Crownie for short)',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '48',
@@ -511,6 +558,7 @@ export const Data = {
         'These Chocolate Cookie Ice Cream Sandwiches with No Churn Toasted Coconut Ice Cream will be perfect for all of your summer shindigs!',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '49',
@@ -521,6 +569,7 @@ export const Data = {
         'Lemon Sugar Cookie Sandwiches are sugar cookies with a splash of lemon flavoring and coloring sandwiching a creamy vanilla icecream in between. If you love sandwich cookies must try this.',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '50',
@@ -531,6 +580,7 @@ export const Data = {
         'Cookie Dough Ice Cream Sandwiches are the perfect treat anytime, anywhere. Frozen ice cream bar with safe to eat, egg-free cookie dough.',
       price: '10',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '51',
@@ -541,6 +591,7 @@ export const Data = {
         'Share the love in a big way with a 12" pre-decorate chocolate chip cookie cake. A moist and chewy, colossal cookie cake. Made with real butter, whole eggs, and pure vanilla, this same irresistible cookie-dough recipe was perfected some thirty years ago and still surprises and delights thousands of loved ones each year. Our Big Cookie Cakes are still first in flavor. Cookie frosting colors are as shown.',
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '52',
@@ -551,6 +602,7 @@ export const Data = {
         'A soft, chewy cookie cake filled with chocolate chips and topped with a chocolate buttercream frosting. This Chocolate Chip Cookie Cake is the perfect dessert for any occasion! Perfect for birthdays or just about any occasion and Super delicious!',
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '53',
@@ -561,6 +613,7 @@ export const Data = {
         "Love peanut butter?  This deep dish peanut butter cookie cake is topped with Peanut Butter , chips and chocolate drizzle.Sink your teeth into a slice of our one of a kind, deep dish cookie cake. This peanut butter creation is a combination of a giant cookie that's over an inch .",
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '54',
@@ -571,6 +624,7 @@ export const Data = {
         'Dark chocolate cookie cake filled with creamy white chocolate chips and topped with a chocolate fudge frosting.',
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '55',
@@ -581,6 +635,7 @@ export const Data = {
         'Buttery chocolate chip cookie dough, baked in a skillet, with a thick layer of Nutella hidden in the middle. Once baked, you’ll end up with a golden brown cookie with crisp edges, a slightly under cooked middle, and Nutella oozing everywhere! ',
       price: '45',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '56',
@@ -591,6 +646,7 @@ export const Data = {
         'Large sugar cookie baked with white chocolate chips and sprinkles! perfect for birthday .',
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '57',
@@ -601,6 +657,7 @@ export const Data = {
         'It’s time for all things Red Velvet! This Red Velvet Cookie Cake is so good, and so perfect for Valentine’s Day or anytime you need a cookie cake.',
       price: '40',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '58',
@@ -611,6 +668,7 @@ export const Data = {
         "A decadent layered 'cake' made with ice cream and cookies is a great way to celebrate.",
       price: '45',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '59',
@@ -621,6 +679,7 @@ export const Data = {
         "A birthday cake worthy of a party of its own! Using cookie crumbs creates cookie dough-like nuggets within the cake once it's baked. It's topped with fluffy chocolate buttercream frosting for a final flourish.",
       price: '50',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
     {
       id: '60',
@@ -631,6 +690,7 @@ export const Data = {
         "This Chocolate Chip Cookie Ice Cream Cake is a fun cross between chocolate chip cookies and ice cream, and it's the perfect treat for summer!",
       price: '50',
       bgcolor: '#FEFCFC',
+      added: 0,
     },
   ],
 };

@@ -4,6 +4,56 @@ import {combineReducers} from 'redux';
 const userState = {};
 let crntPrdtState = {};
 let FavItems = [];
+let cart = {
+  items: {},
+  totalItems: 0,
+  totalAmount: 0,
+};
+
+const cartReducer = (st = cart, action) => {
+  let prev_items = {...st.items};
+  switch (action.type) {
+    case ActionTypes.ADD_ITEM_CART:
+      if (!prev_items[action.payload.id]) {
+        prev_items[action.payload.id] = {...action.payload};
+      }
+      let added1 = prev_items[action.payload.id].added + 1;
+      prev_items[action.payload.id].added = added1;
+      let tot_items = st.totalItems + 1;
+      let tot_amount = (
+        parseFloat(st.totalAmount) + parseFloat(action.payload.price)
+      ).toFixed(2);
+      st = Object.assign({}, st, {
+        items: prev_items,
+        totalItems: tot_items,
+        totalAmount: tot_amount,
+      });
+      return st;
+
+    case ActionTypes.REMOVE_ITEM_CART:
+      const id = action.payload.id;
+      const itemAdded = prev_items[id].added;
+      if (itemAdded === 1) {
+        delete prev_items[id];
+      } else {
+        prev_items[action.payload.id].added = itemAdded - 1;
+      }
+      tot_items = st.totalItems - 1;
+      tot_amount = (
+        parseFloat(st.totalAmount) - parseFloat(action.payload.price)
+      ).toFixed(2);
+      st = Object.assign({}, st, {
+        items: prev_items,
+        totalItems: tot_items,
+        totalAmount: tot_amount,
+      });
+      return st;
+
+    default:
+      break;
+  }
+  return st;
+};
 
 const userReducer = (st = userState, action) => {
   switch (action.type) {
@@ -52,4 +102,4 @@ const toggleFav = (state = FavItems, action) => {
   return state;
 };
 
-export default combineReducers({userReducer, crntPrdt, toggleFav});
+export default combineReducers({userReducer, crntPrdt, toggleFav, cartReducer});
